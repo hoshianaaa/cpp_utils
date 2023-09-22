@@ -78,7 +78,7 @@ class PSP_num
          void main_loop(const ros::TimerEvent &)
          {
             // fix noise
-             if (data_ < 0.0000000001)
+             if (std::abs(data_) < 0.0000000001)
                data_ = 0;
              std_msgs::Float64 msg;
              msg.data = data_;
